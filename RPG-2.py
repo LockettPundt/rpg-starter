@@ -1,3 +1,4 @@
+import random
 class Character:
     def __init__(self, name, health, power):
         self.name = name
@@ -5,11 +6,12 @@ class Character:
         self.power = power
 
     def attack(self, opponent):
-        opponent.health -= self.power
+        temp_damage = random.randint(1, self.power + 1)
+        opponent.health -= temp_damage
         if self.name == "hero":
-            print("You do %d damage to the %s." % (self.power, opponent.name))
+            print("You do %d damage to the %s." % (temp_damage, opponent.name))
         else:
-            print("The %s does %d damage to you." % (self.name, self.power))
+            print("The %s does %d damage to you." % (self.name, temp_damage))
 
     def alive(self):
         if self.health <= 0:
