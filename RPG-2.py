@@ -6,7 +6,7 @@ class Character:
         self.power = power
 
     def attack(self, opponent):
-        temp_damage = random.randint(1, self.power + 1)
+        temp_damage = random.randint(1, self.power)
         opponent.health -= temp_damage
         if self.name == "hero":
             print("You do %d damage to the %s." % (temp_damage, opponent.name))
