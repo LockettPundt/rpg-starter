@@ -6,10 +6,10 @@ class Character:
 
     def attack(self, opponent):
         opponent.health -= self.power
-        if self.name != "goblin":
+        if self.name == "hero":
             print("You do %d damage to the %s." % (self.power, opponent.name))
         else:
-            print("The goblin does %d damage to the %s." % (self.power, opponent.name))
+            print("The %s does %d damage to you." % (self.name, self.power))
 
     def alive(self):
         if self.health <= 0:
