@@ -29,6 +29,23 @@ class Character:
         print("The %s has %d health and %d power." % (self.name, self.health, self.power))
 
 
+class Wizard(Character):
+    def __init__(self, name, health, power, luck, coins):
+        super().__init__(name, health, power, luck, coins)
+    def attack(self, opponent):
+        luck_roll = random.randint(1, 101)
+        temp_damage = random.randint(1, self.power)
+        if luck_roll <= self.luck:
+            opponent.health -= temp_damage * 3
+            print("%s completely incinerates a %s with a magic missle, hitting it for %s!!!!!!" % (self.name, opponent.name, temp_damage))
+        else:
+            opponent.health -= temp_damage
+            print("%s burns a %s with a magic missle, hitting it for %s" % (self.name, opponent.name, temp_damage))
+
+
+
+
+
 
 class Hero(Character):
     def __init__(self, name, health, power, luck, coins):
@@ -50,7 +67,7 @@ class Hero(Character):
         else:
             opponent.health -= temp_damage
             print("You hit a %s for %s damage." % (opponent.name, temp_damage))
-        
+  
     def alive(self):
         if self.health <= 0:
             print("The %s is dead." % self.name)
@@ -131,7 +148,7 @@ class Gorgon(Character):
 
 
 
-
+timmy = Wizard("Timmy", 15, 18, 30, 0)
 medic = Medic("Medic", 20, 5, 20, 2)
 shadow = Shadow("Shadow", 1, 5, 10, 5)
 hero = Hero("Hero", 35, 15, 20, 0)
@@ -158,6 +175,7 @@ class Battle(object):
             user_input = int(input())
             if user_input == 1:
                 hero.attack(enemy)
+                timmy.attack(enemy)
                 medic.heal(hero)
             elif user_input == 2:
                 medic.heal(hero)
