@@ -136,6 +136,7 @@ shadow = Shadow("Shadow", 1, 5, 10, 5)
 hero = Hero("Hero", 35, 15, 20, 0)
 goblin = Goblin("Goblin", 40, 3, 10, 5)
 gorgon = Gorgon("Gorgon", 42, 5, 5, 10)
+john = Goblin("A Fiestier Goblin", 40, 5, 20, 20)
 herb = Zombie("Herb the Zombie", 1, 1, 1, 100000000)
 
 class Battle(object):
@@ -217,7 +218,7 @@ class Store(object):
                 item = ItemToBuy()
                 hero.buy(item)
 
-enemies = [shadow, gorgon, goblin, goblin, herb]
+enemies = [shadow, gorgon, goblin, john, herb]
 battle_engine = Battle()
 shopping_engine = Store()
 
