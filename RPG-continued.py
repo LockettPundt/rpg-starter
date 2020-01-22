@@ -112,8 +112,9 @@ class Medic(Character):
     def heal(self, ally):
         luck_roll = random.randint(1, 101)
         if luck_roll <= self.luck:
-            ally.health += 2
-            print("The %s healed the %s for %s." % (self.name, ally.name, 2))
+            heal_amount = random.randint(1, 13)
+            ally.health += heal_amount
+            print("The %s healed the %s for %s." % (self.name, ally.name, heal_amount))
 
 class Gorgon(Character):
     def __init__(self, name, health, power, luck, coins):
